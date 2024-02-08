@@ -1,22 +1,16 @@
 # Сборка образа
-# docker build . -t cable_m_image:latest
+# docker build . -t cable_j_image:latest
 
 # Сохранить архив образа
-# docker save -o C:\Users\sokolov\MyData\cable_m_image.tar cable_m_image, где 
-# cable_m_image.tar - имя файла архива, 
-# cable_m_image - имя образа, 
-# <C:\Users\sokolov\MyData\> - путь сохранения
-
-# Для разархивирования файла архива docker-образа с расширением tar нужно выполнить следующие шаги:
-# 1. Открыть командную строку или терминал.
-# 2. Перейти в папку, где сохранен файл архива.
-# 3. Выполнить команду для разархивирования файла:
-#  tar -xvf cable_m_image.tar
+# docker save -o C:\Users\sokolov\MyData\cable_j_image.tar cable_j_image 
+# C:\Users\sokolov\MyData\cable_j_image.tar - путь сохранения\имя файла архива 
+# cable_j_image - имя образа
 
 # Для загрузки образа Docker из tar-архива:
-# docker load -i C:\Users\sokolov\MyData\cable_m_image.tar
+# docker load -i C:\Users\e.titova\cable_j_image.tar
 
 # Сборка контейнера
-# docker run --name cable_m -v C:/Users/sokolov/MyData/Projects/cable_m_image:/app/exchange -d cable_m_image:latest
+# docker run --name cable_journal -v C:/Users/e.titova/Documents/cable_journal:/app/cable_journal -d cable_j_image:latest
 
-docker start cable_m
+# Запуск контейнера
+docker start cable_journal

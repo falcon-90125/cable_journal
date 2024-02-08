@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_excel(f'exchange/cable_magazine.xlsx', header=0)
+data = pd.read_excel(f'cable_journal/cable_journal.xlsx', header=0)
 columns = data.columns
 df_out = pd.DataFrame(columns=columns)
 
@@ -52,7 +52,7 @@ for i in range(len(data)):
     # Добавляем в общий df
     df_out = pd.concat([df_out, df_i])
 
-file_directory_resalts = f'exchange/cable_magazine_out.xlsx' # Директория сохранения файла
+file_directory_resalts = f'cable_journal/cable_journal_out.xlsx' # Директория сохранения файла
 
 writer_0 = pd.ExcelWriter(file_directory_resalts, engine='xlsxwriter') # + file_name
 df_out.to_excel(writer_0, sheet_name='Sheet1', index=False) # Определяем сохранение xlsx методом ExcelWriter
@@ -77,7 +77,7 @@ df_out_groupby = df_out_groupby.drop('index',axis=1)
 for i in range(len(df_out_groupby)):
     df_out_groupby['Длина в КНС'][i] = round(df_out_groupby['Длина в КНС'][i], 2)
 
-file_directory_resalts_groupby = f'exchange/cable_magazine_out_groupby.xlsx' # Директория сохранения файла
+file_directory_resalts_groupby = f'cable_journal/cable_journal_out_groupby.xlsx' # Директория сохранения файла
 
 writer_1 = pd.ExcelWriter(file_directory_resalts_groupby, engine='xlsxwriter') # + file_name
 df_out_groupby.to_excel(writer_1, sheet_name='Sheet1', index=False) # Определяем сохранение xlsx методом ExcelWriter
