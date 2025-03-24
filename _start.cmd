@@ -2,7 +2,7 @@
 # docker build . -t cable_j_image:latest
 
 # Сохранить архив образа
-# docker save -o C:\Users\sokolov\MyData\cable_j_image.tar cable_j_image 
+# docker save -o C:\Users\sokolov\Yandex_Disk\MyData\cable_j_image.tar cable_j_image 
 # C:\Users\sokolov\MyData\cable_j_image.tar - путь сохранения\имя файла архива 
 # cable_j_image - имя образа
 
