@@ -9,12 +9,12 @@ for i in range(len(data)):
     if type(stroka['Позиция']) == float: # Полностью пустые строки имеют первую ячейку с типом float, поэтому их пропускаем
         pass
 
-    if type(stroka['Позиция']) == str and type(stroka['Начало']) == float: # Строка в первой ячейкой заполнена (имя щита), вторая пустая с типом float, её записываем
+    elif type(stroka['Позиция']) == str and type(stroka['Начало']) == float: # Строка в первой ячейкой заполнена (имя щита), вторая пустая с типом float, её записываем
         df_i = pd.DataFrame(columns=columns)
         df_i.loc[len(df_out)] = [''] * len(df_i.columns)
         df_i.iloc[0, 0] = stroka['Позиция']
 
-    if type(stroka['Позиция']) == str and type(stroka['Начало']) == str and type(stroka['Конец']) == str:
+    elif type(stroka['Позиция']) == str and type(stroka['Начало']) == str and type(stroka['Конец']) == str:
         okns = stroka['Обозначение КНС'].replace("\n", "").replace("_x000D_", "")
         okns = okns.split(";") # Разбираем данные по делителю, записываем с список
         gkns = stroka['Габариты КНС'].replace("\n", "").replace("_x000D_", "")
@@ -52,6 +52,8 @@ for i in range(len(data)):
         df_i = pd.DataFrame({'Позиция':poziciya, 'Начало':nachalo, 'Конец':konec, 
                                 'Обозначение КНС':okns, 'Габариты КНС':gkns, 
                                 'Длина в КНС':dkns, 'Марка':marka, 'NxS':nxs, 'Длина':dlina})
+
+
     # Добавляем в общий df
     df_out = pd.concat([df_out, df_i])
 
